@@ -1,0 +1,48 @@
+*,::after, *, ::before{
+    box-sizing: border-box;
+}
+:root {
+    --hue: 200;
+    --saturation: 50%;
+    --foreground-color: hsl(var(--hue), var(--saturation), 75%);
+    --background-color: hsl(var(--hue), var(--saturation), 20%);
+}
+
+body {
+    margin: 0;
+    background-color: var(--background-color);
+}
+
+.paddle{
+--position:50; /*created a Javascript CSS variable */ 
+
+position: absolute;
+background-color: var(--foreground-color);
+transform:translateY(-50);  /* This adjust the paddle to be dead centerof the screen*/
+top: calc(var(--position) * 1vh);
+/* we are going to want 50vh to be used JavaScript, but we need verb that to a vh Value to do that we can just use calc, multiply 1vh*/
+width:1vh;
+height: 10vh; 
+}
+/*vh represents the viewport-percentage length unit based on the browser default viewport size. Represents a percentage of the width of the viewport's initial containing block. 1vw is 1% of the viewport width. For example, if the viewport width is 800px , then a value of 50vw on a property will be 400px */
+
+.paddle.left{
+left:1vw /* this 1% fromt the left hand side */
+}
+
+.paddle.right{
+right:1vw;
+}
+
+.ball{
+    --x:50;
+    --y:50;
+position: absolute;
+    background-color: var(--foreground-color);
+    left:calc(var(--x)* 1vh);
+    top: calc(var(--y) * 1vh);
+    border-radius:50%;
+    transform: translate(-50%, -50%);
+    width: 2.5vh;
+    height:2.5vh;
+}
